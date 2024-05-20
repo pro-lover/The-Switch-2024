@@ -1,0 +1,52 @@
+﻿.inner-container{
+    margin: 1px;
+    display: table-cell;
+    border-radius: 40px;
+    padding: 10px;
+
+    .border-card{
+        border-radius: 40px;
+        background-color:  white !important;
+        width: 340px;
+        height: 350px;
+        color: #6A76FF;
+        
+        button{
+            width: 100%;
+            border-bottom-left-radius:30px;
+            border-bottom-right-radius:30px;
+        }
+
+    }
+    .card-button{
+        width: 340px;
+        height: 350px;
+        color: aliceblue;
+        a{
+            text-align: center;
+            color: aliceblue;
+            top: 153px;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            border: 1px solid wheat;
+            mat-icon{
+                position: relative;
+                top:7px;
+                left:-33px;
+            }
+
+        }
+        a:hover {
+            background-color: white;
+            color: #6A76FF;
+          }
+        
+    }
+}
+.card-header{
+    align-items: center;
+    background: transparent !important;
+    width: 100%;
+    text-align: center;
+}

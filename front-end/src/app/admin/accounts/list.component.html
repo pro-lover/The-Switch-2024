@@ -1,0 +1,192 @@
+﻿<h1>Accounts</h1>
+<p>All accounts from secure (admin only) api end point:</p>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Create Account</a>
+<ng-container>
+  <div>
+    <button  type="button" class="collapsible">{{companyRole[1]}} </button>
+    <div class="content">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width:30%">Name</th>
+                <th style="width:30%">Email</th>
+                <th style="width:30%">System Role</th>
+                <th style="width:30%">Company Role</th>
+                <th style="width:30%">Department Role</th>
+                <th style="width:30%">Department Category</th>
+                <th style="width:30%">Workers Position</th>
+                <th style="width:30%">Money In</th>
+                <th style="width:30%">Money Out</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of company_clients">
+                <td>{{account.title}} {{account.firstName}} {{account.lastName}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.systemRole}}</td>
+                <td>{{account.companyRole}}</td>
+                <td>{{account.departmentRole}}</td>
+                <td>{{account.departmentCategory}}</td>
+                <td>{{account.workersPosition}}</td>
+                <td>{{account.moneyIn}}</td>
+                <td>{{account.moneyOut}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
+                        <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!account.isDeleting">Delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!accounts">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+  <div>
+    <button  type="button" class="collapsible">{{companyRole[2]}} </button>
+    <div class="content">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width:30%">Name</th>
+                <th style="width:30%">Email</th>
+                <th style="width:30%">System Role</th>
+                <th style="width:30%">Company Role</th>
+                <th style="width:30%">Department Role</th>
+                <th style="width:30%">Department Category</th>
+                <th style="width:30%">Workers Position</th>
+                <th style="width:30%">Money In</th>
+                <th style="width:30%">Money Out</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of company_employees">
+                <td>{{account.title}} {{account.firstName}} {{account.lastName}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.systemRole}}</td>
+                <td>{{account.companyRole}}</td>
+                <td>{{account.departmentRole}}</td>
+                <td>{{account.departmentCategory}}</td>
+                <td>{{account.workersPosition}}</td>
+                <td>{{account.moneyIn}}</td>
+                <td>{{account.moneyOut}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
+                        <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!account.isDeleting">Delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!accounts">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+  <div>
+    <button  type="button" class="collapsible">Not Position </button>
+    <div class="content">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width:30%">Name</th>
+                <th style="width:30%">Email</th>
+                <th style="width:30%">System Role</th>
+                <th style="width:30%">Company Role</th>
+                <th style="width:30%">Department Role</th>
+                <th style="width:30%">Department Category</th>
+                <th style="width:30%">Workers Position</th>
+                <th style="width:30%">Money Out</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of company_notPositioned">
+                <td>{{account.title}} {{account.firstName}} {{account.lastName}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.systemRole}}</td>
+                <td>{{account.companyRole}}</td>
+                <td>{{account.departmentRole}}</td>
+                <td>{{account.departmentCategory}}</td>
+                <td>{{account.workersPosition}}</td>
+                <td>{{account.money}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
+                        <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!account.isDeleting">Delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!accounts">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+  <div>
+    <button  type="button" class="collapsible">All</button>
+    <div class="content">
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width:30%">Name</th>
+                <th style="width:30%">Email</th>
+                <th style="width:30%">System Role</th>
+                <th style="width:30%">Company Role</th>
+                <th style="width:30%">Department Role</th>
+                <th style="width:30%">Department Category</th>
+                <th style="width:30%">Workers Position</th>
+                <th style="width:30%">Money In</th>
+                <th style="width:30%">Money Out</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of accounts">
+                <td>{{account.title}} {{account.firstName}} {{account.lastName}}</td>
+                <td>{{account.email}}</td>
+                <td>{{account.systemRole}}</td>
+                <td>{{account.companyRole}}</td>
+                <td>{{account.departmentRole}}</td>
+                <td>{{account.departmentCategory}}</td>
+                <td>{{account.workersPosition}}</td>
+                <td>{{account.moneyIn}}</td>
+                <td>{{account.moneyOut}}</td>
+                <td style="white-space: nowrap">
+                    <a routerLink="edit/{{account.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                    <button (click)="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" [disabled]="account.isDeleting">
+                        <span *ngIf="account.isDeleting" class="spinner-border spinner-border-sm"></span>
+                        <span *ngIf="!account.isDeleting">Delete</span>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="!accounts">
+                <td colspan="4" class="text-center">
+                    <span class="spinner-border spinner-border-lg align-center"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+
+</ng-container >
+
+
+
+
