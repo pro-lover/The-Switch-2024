@@ -1,13 +1,35 @@
 ﻿
-<mat-grid-list cols="4" rowHeight="100px">
+<mat-grid-list cols="5" rowHeight="100px">
   <mat-grid-tile [colspan]="1"[rowspan]="9">
-    <button type="">image</button>
-    <button type="">image</button>
+    <nav class="navbar navbar-light bg-light">
+      <button class="btn btn-primary" value="select" >Select</button>
+      <button class="btn btn-primary" value="rectangle" #drawRectangle>Rectangle</button>
+      <button class="btn btn-primary" (click)="drawLine()">Line</button>
+      <button class="btn btn-primary" (click)="drawCircle()">Circle</button>
+      <button class="btn btn-primary" (click)="clear()">clear</button>
+      <button class="btn btn-primary" (click)="drawPath()">Path</button>
+      <button class="btn btn-primary" value="text" #drawText >Text</button>
+      <button class="btn btn-primary" (click)="drawImage()">Image</button>
+    </nav>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="3"[rowspan]="9">
-    <canvas #canvas>
-      Fallback content
+    <canvas id="canvas" #mainCanvas width="600" height="800" class="border">
+      Fallback content - HTML5 is not supported on your browser!
     </canvas>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"[rowspan]="9">
+    <table class="table table-striped">
+      <thead>
+          <tr>
+              <th style="width:30%"><h1>Layers</h1></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let layer of layers">
+              <td ><a >{{layer.name}}</a></td>
+          </tr>
+      </tbody>
+  </table>
   </mat-grid-tile>
 </mat-grid-list>
 
